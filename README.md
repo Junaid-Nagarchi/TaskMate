@@ -1,16 +1,30 @@
-# React + Vite
+## Core Features
+1. Task Input Form
+   - Users can add tasks using an input field and a submit button.
+   - Includes validation to prevent empty or duplicate tasks.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+2. Task List
+   - Displays tasks dynamically with their completion status.
+   - Allows users to mark tasks as complete or delete them.
 
-Currently, two official plugins are available:
+3. Persistent Data
+   - Uses localStorage to save tasks so they remain available after refreshing the page.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+4. Progress Tracker
+   - Shows a visual progress indicator based on completed tasks.
+   - Automatically updates when tasks are marked complete or pending.
 
-## React Compiler
+5. Task History
+   - Stores completed tasks separately for review.
+   - Users can restore completed tasks or permanently delete them.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technical Requirements
+- Frontend Framework: React.js  
+- Data Storage: localStorage  
+- Version Control: Git and GitHub  
+- Deployment: GitHub Pages or Netlify  
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Required Tools
+- Code Editor: Visual Studio Code (or any preferred editor)  
+- Browser: Google Chrome (or any modern browser)  
+- Node.js and npm: To manage dependencies and run the React application  
