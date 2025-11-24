@@ -1,0 +1,311 @@
+/* ===== Global Styles ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* Slightly warmer background, improved contrast */
+  margin: 0;
+  padding: 40px 16px;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f8f9fa; /* Lighter/softer grey */
+  color: #1a202c; /* Darker, almost black text */
+  letter-spacing: 0.1px; /* Slightly tighter letter-spacing */
+}
+
+/* Center the app and limit width */
+#root {
+  max-width: 768px; /* Slightly wider max-width for modern feel */
+  margin: 0 auto;
+}
+
+/* ===== Header ===== */
+header {
+  text-align: center;
+  margin-bottom: 32px; /* Increased margin */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem; /* Larger font size */
+  font-weight: 800; /* Bolder font weight */
+  /* Modern, softer gradient */
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+header p {
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 1rem; /* Slightly larger */
+  color: #64748b; /* Slate grey */
+}
+
+/* ===== Task Form ===== */
+.task-form {
+  background: #ffffff;
+  padding: 24px; /* Increased padding */
+  border-radius: 16px; /* Softer border-radius */
+  /* More pronounced, layered shadow */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 2px 10px rgba(0, 0, 0, 0.03);
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Increased gap */
+}
+
+/* Top row: input + button */
+#inp {
+  display: flex;
+  gap: 12px; /* Increased gap */
+}
+
+#inp input {
+  flex: 1;
+  padding: 12px 16px; /* Increased padding */
+  border-radius: 10px; /* Softer border-radius */
+  border: 1px solid #e2e8f0; /* Lighter border */
+  background: #ffffff; /* White background for input */
+  font-size: 1rem; /* Slightly larger text */
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+#inp input::placeholder {
+  color: #94a3b8; /* Lighter placeholder text */
+}
+
+#inp input:focus {
+  border-color: #6366f1; /* Tailwind 'indigo-500' */
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); /* More noticeable focus ring */
+  background: #fff;
+}
+
+#inp button {
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  /* Updated primary button color and hover state */
+  background: linear-gradient(145deg, #6366f1, #4f46e5); /* Soft gradient */
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#inp button:hover {
+  background: linear-gradient(145deg, #4f46e5, #6366f1);
+  transform: translateY(-3px); /* More pronounced lift */
+  box-shadow: 0 6px 15px rgba(99, 102, 241, 0.3); /* Shadow on hover */
+}
+
+#inp button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Bottom row: selects */
+#btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+#btns select {
+  flex: 1;
+  min-width: 140px; /* Slightly wider */
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  font-size: 0.95rem;
+  cursor: pointer;
+  appearance: none; /* Hide default dropdown arrow */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%2364748b'%3E%3Cpath d='M7 7l3 3 3-3' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 1em;
+}
+
+#btns select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  background: #fff;
+}
+
+#btns select option[disabled] {
+  color: #94a3b8;
+}
+
+/* ===== Task List ===== */
+.task-list {
+  list-style: none;
+  margin: 0 0 20px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-list li {
+  background: #ffffff;
+  border-radius: 12px; /* Softer border-radius */
+  padding: 14px 20px; /* Increased padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center vertically */
+  gap: 15px;
+  border: 1px solid #f1f5f9; /* Very light border */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Softer shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Make list feel clickable / interactive */
+.task-list li:hover {
+  transform: translateY(-3px); /* More pronounced lift */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Left side (text + meta) */
+.task-list li > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1; /* Allows text to take up available space */
+}
+
+.task-list li span {
+  font-size: 1rem;
+  font-weight: 500;
+  word-break: break-word; /* Ensure long words break */
+}
+
+.task-list li small {
+  font-size: 0.85rem; /* Slightly larger for better readability */
+  color: #64748b;
+}
+
+/* Buttons inside list */
+.task-list li > div:last-child {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+.task-list button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.task-list button:nth-child(1) {
+  /* Vibrant success color */
+  background: #10b981; /* Tailwind 'emerald-500' */
+  color: white;
+}
+.task-list button:nth-child(1):hover {
+  background: #059669; /* Darker emerald */
+  transform: translateY(-1px);
+}
+
+.task-list button:nth-child(2) {
+  /* Softer, more modern warning/delete color */
+  background: #fef2f2; /* Lightest red */
+  color: #dc2626; /* Darker red text */
+}
+.task-list button:nth-child(2):hover {
+  background: #fee2e2;
+  transform: translateY(-1px);
+}
+
+/* ===== Completed task styling ===== */
+.task-list li.completed {
+  background: #f7f9fc; /* Very light background for completed */
+  opacity: 0.9;
+  border-left: 5px solid #10b981; /* Accent color on the side */
+}
+
+.task-list li.completed span {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #94a3b8; /* Lighter strikethrough color */
+  text-decoration-skip-ink: none;
+  color: #94a3b8; /* Muted text color */
+}
+
+/* ===== Progress Tracker ===== */
+.progress-tracker {
+  background: white;
+  padding: 16px 20px; /* Increased padding */
+  border-radius: 12px;
+  margin: 24px 0;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.progress-tracker p {
+  margin: 0 0 8px 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px; /* Slightly taller bar */
+  background: #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden; /* Ensures progress doesn't bleed */
+}
+
+.progress {
+  height: 100%;
+  /* More defined, vibrant gradient */
+  background: linear-gradient(90deg, #10b981, #34d399);
+  border-radius: 6px 0 0 6px; /* Rounded corners on the start */
+  transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
+}
+
+/* ===== Clear Button ===== */
+.clear-btn {
+  margin-top: 10px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  /* Stronger, more appealing danger color */
+  background: #ef4444; /* Tailwind 'red-500' */
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.clear-btn:hover {
+  background: #dc2626; /* Darker red */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(239, 68, 68, 0.3);
+}
+
+/* ===== Responsiveness ===== */
+@media (max-width: 600px) {
+  #inp { flex-direction: column; }
+  #inp button { width: 100%; }
+  /* Keep the list items from breaking to column on small screens for better appearance, 
+     but allow the content to wrap or use flex-wrap */
+  .task-list li {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .task-list li > div:first-child { width: 100%; } /* Ensure text takes full width */
+  .task-list li > div:last-child { 
+    width: 100%; 
+    justify-content: flex-end; /* Push buttons to the right on mobile */
+  }
+}
